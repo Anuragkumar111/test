@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './Components/Header';
+import LoginForm from './Components/LoginForm';
+import { useState } from 'react';
 
 function App() {
+  const [name, setName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className='app'>
+        <Header />
+        <LoginForm
+          name={name}
+          setName={setName}
+          phoneNumber={phoneNumber}
+          setPhoneNumber={setPhoneNumber}
+          handleLogin={handleLogin}
+        />
+      </div>
+    </>
   );
 }
 
